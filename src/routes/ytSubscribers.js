@@ -7,11 +7,7 @@ const {
   deleteSubscriber,
   updateSubscriber,
   getNameSubscribers,
-  HomeRoute,
 } = require("../controllers/ytSubscriberController");
-
-//GET default route
-router.get("/", HomeRoute);
 
 //GET all youtube subscribers
 router.get("/", getSubscribers);

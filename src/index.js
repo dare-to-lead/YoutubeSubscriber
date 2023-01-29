@@ -14,11 +14,6 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
-//app.use(express.urlencoded({ extended: false }));
-
-//routes
-
-app.use("/api/ytSubscribers", ytSubscriberRouter);
 
 // Connect to DATABASE
 mongoose.connect(DATABASE_URL, {
