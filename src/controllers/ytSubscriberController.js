@@ -25,13 +25,15 @@ const getSubscriber = async (req, res) => {
 
     // check for valid Id, if not valid returns status 404 with error message
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: "No such id" });
+      return res.status(404).json({ error: "Invalid subscriber id" });
     }
     const subscriber = await ytSubscribers.findById(id).select("-__v");
 
     // if no subscriber found with given Id , return error with status 400
     if (!subscriber) {
-      return res.status(400).json({ error: "No such id" });
+      return res
+        .status(400)
+        .json({ error: `No subscriber exists with this ${id} id` });
     } else {
       res.status(200).json(subscriber);
     }
@@ -79,7 +81,7 @@ const deleteSubscriber = async (req, res) => {
 
     // check for valid Id, if not valid returns status 404 with error message
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: "No such id" });
+      return res.status(404).json({ error: "Invalid id" });
     }
     const subscriber = await ytSubscribers.findByIdAndDelete({ _id: id });
 
@@ -88,7 +90,7 @@ const deleteSubscriber = async (req, res) => {
       return res.status(400).json({ error: "No such id" });
     } else {
       // if success , return status 200 with success message
-      res.status(200).json(subscriber);
+      res.status(200).json({ message: "deletion successful" });
     }
   } catch (error) {
     // if error occurs, return status 400 with error
@@ -104,7 +106,7 @@ const updateSubscriber = async (req, res) => {
 
     // check for valid Id, if not valid returns status 404 with error message
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ error: "No such id" });
+      return res.status(404).json({ error: "Invalid id" });
     }
     // update subscriber for particular id
     const subscriber = await ytSubscribers.findByIdAndUpdate(
@@ -117,7 +119,9 @@ const updateSubscriber = async (req, res) => {
 
     // if no subscriber found with given Id , return error with status 400
     if (!subscriber) {
-      return res.status(404).json({ error: "No such id" });
+      return res
+        .status(404)
+        .json({ error: `No subscriber exists with given ${id} id` });
     } else {
       res.status(200).json(subscriber);
     }
