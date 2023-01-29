@@ -41,7 +41,7 @@ const getSubscriber = async (req, res) => {
   }
 };
 
-// GET request for the path of './subscriber/names'
+// GET request for the path of './names'
 const getNameSubscribers = async (req, res) => {
   try {
     // get list of all subscribers
@@ -107,7 +107,7 @@ const updateSubscriber = async (req, res) => {
       return res.status(404).json({ error: "No such id" });
     }
     // update subscriber for particular id
-    const subscriber = await ytSubscribers.findByIdAndDelete(
+    const subscriber = await ytSubscribers.findByIdAndUpdate(
       { _id: id },
       {
         ...req.body,
