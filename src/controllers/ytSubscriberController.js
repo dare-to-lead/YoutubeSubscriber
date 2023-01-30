@@ -17,6 +17,21 @@ const getSubscribers = async (req, res) => {
   }
 };
 
+// GET request for the path of './names'
+const getNameSubscribers = async (req, res) => {
+  try {
+    // get list of all subscribers
+    const subscriber = await ytSubscribers
+      .find({})
+      .select("-__v -_id -subscribedDate");
+    // If successful, return a response with status 200 with list of subscribers
+    return res.status(200).json(subscriber);
+  } catch (error) {
+    // If error occurs, return a response with a status 404 with error message
+    return res.status(400).json({ error: error.message });
+  }
+};
+
 //get a single ytSubscriber for a specific id
 const getSubscriber = async (req, res) => {
   try {
@@ -40,21 +55,6 @@ const getSubscriber = async (req, res) => {
   } catch (error) {
     // if error occurs, return status 400 with error
     return res.status(400).json({ error: error.message });
-  }
-};
-
-// GET request for the path of './names'
-const getNameSubscribers = async (req, res) => {
-  try {
-    // get list of all subscribers
-    const subscriber = await ytSubscribers
-      .find({})
-      .select("-__v -_id -subscribedDate");
-    // If successful, return a response with status 200 with list of subscribers
-    return res.status(200).json(subscriber);
-  } catch (error) {
-    // If error occurs, return a response with a status 404 with error message
-    return res.status(404).json({ error: error.message });
   }
 };
 
