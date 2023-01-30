@@ -1,7 +1,7 @@
 require("dotenv").config();
 const PORT = 8080;
-const DATABASE_URL =
-  "mongodb+srv://anjumShaikh:coltSteele@almabackend.rztdvdr.mongodb.net/?retryWrites=true&w=majority";
+const DATABASE_URL = process.env.DATABASE_URL;
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");

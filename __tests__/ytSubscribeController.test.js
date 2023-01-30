@@ -13,7 +13,7 @@ describe("GET all subscribers", () => {
   it("should get all subscribers", (done) => {
     chai
       .request("http://localhost:8080")
-      .get("/api/ytSubscribers/")
+      .get("/subscribers")
       .end((err, res) => {
         if (err) {
           console.log(err);
@@ -32,7 +32,7 @@ describe("GET single youtube subscriber", () => {
   it("should get a single subscriber", (done) => {
     chai
       .request("http://localhost:8080")
-      .get("/api/ytSubscribers/63d753657ea251179c5a6e52")
+      .get("/subscribers/63d753657ea251179c5a6e52")
       .end((err, res) => {
         if (err) {
           console.log(err);
@@ -56,7 +56,7 @@ describe("POST a you tube subscriber", () => {
     };
     chai
       .request("http://localhost:8080")
-      .post("/api/ytSubscribers/")
+      .post("/subscribers/")
       .send(subscriberData)
       .end((err, res) => {
         if (err) {
@@ -77,7 +77,7 @@ describe("DELETE a you tube subscriber", () => {
   it("should delete a subscriber", (done) => {
     chai
       .request("http://localhost:8080")
-      .delete("/api/ytSubscribers/63d753657ea251179c5a6e52")
+      .delete("/api/subscribers/63d753657ea251179c5a6e52")
       .end((err, res) => {
         if (err) {
           console.log(err);
@@ -97,7 +97,7 @@ describe("GET you tube subscriber's names", () => {
   it("should get a PATH /api/ytSubscribers/names", (done) => {
     chai
       .request("http://localhost:8080")
-      .get("/api/ytSubscribers/names")
+      .get("/subscribers/names")
       .end((err, res) => {
         if (err) {
           console.log(err);
@@ -120,7 +120,7 @@ describe("UPDATE a you tube subscriber", () => {
     };
     chai
       .request("http://localhost:8080")
-      .patch("/api/ytSubscribers/63d753b67ea251179c5a6e56")
+      .patch("/subscribers/63d753b67ea251179c5a6e56")
       .send(subscriberData)
       .end((err, res) => {
         if (err) {

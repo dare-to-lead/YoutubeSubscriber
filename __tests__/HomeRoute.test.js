@@ -13,7 +13,7 @@ describe("/Testing the home route", () => {
   it("should get default API home route", (done) => {
     chai
       .request(server)
-      .get("/home")
+      .get("/")
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.be.a("object");
