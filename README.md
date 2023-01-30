@@ -7,7 +7,7 @@ This project using NodeJS, Express, MongoDB Atlas database, Mongoose and dotenv 
 Clone the project
 
 ```bash
-  git clone 
+  git clone https://github.com/dare-to-lead/YoutubeSubscriber/tree/master
 ```
 
 Go to the project directory
