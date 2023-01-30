@@ -3,12 +3,12 @@ const chaiHttp = require("chai-http");
 const server = require("../src/app");
 const expect = chai.expect;
 
-//Assrtion style
+// Assertion style
 chai.should();
 
 chai.use(chaiHttp);
 
-//GET route test for home route
+// GET route test for home route
 describe("/Testing the home route", () => {
   it("should get default API home route", (done) => {
     chai
