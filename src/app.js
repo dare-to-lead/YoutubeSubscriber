@@ -10,35 +10,38 @@ app.use((req, res, next) => {
   next();
 });
 
+const {
+  homeRoute,
+  getSubscribers,
+  getSubscriber,
+  createSubscriber,
+  deleteSubscriber,
+  updateSubscriber,
+  getNameSubscribers,
+} = require("../src/controllers/ytSubscriberController");
+
 //routes
-const ytSubscriberRouter = require("./routes/ytSubscribers");
+const router = express.Router();
 
 //Home Route
-app.get("/home", (req, res) => {
-  res.status(200).json({
-    greeting:
-      "Hi, I am Anjum Shaikh, this is a backend API to Youtube Subscribers",
-    routes: [
-      {
-        route: "/",
-        response: "Response with an array subscribers(an Object)",
-      },
-      {
-        route: "/names",
-        response:
-          "Response with an array of subscribers(an Object with only two fields name and subscribedChannel)",
-      },
-      {
-        routes: "/:id",
-        response:
-          "Response with a subscriber*(an object)* with given id Response with status code 400 and Error message({message: error.message}) if id does not match",
-      },
-    ],
-  });
-});
+router.get("/", homeRoute);
 
-//router middleware
-//default route
-app.use("/api/ytSubscribers", ytSubscriberRouter);
+//GET all youtube subscribers
+router.get("/subscribers", getSubscribers);
 
-module.exports = app;
+//GET request for the path '/subscribers/names
+router.get("/subscribers/names", getNameSubscribers);
+
+//GET a single youtube subscriber
+router.get("/subscribers/:id", getSubscriber);
+
+//POST a new youtube subscriber
+router.post("/subscribers", createSubscriber);
+
+//DELETE a  youtube subscriber
+router.delete("/subscribers/:id", deleteSubscriber);
+
+//UPDATE a youtube subscriber
+router.patch("/subscribers/:id", updateSubscriber);
+
+module.exports = router;

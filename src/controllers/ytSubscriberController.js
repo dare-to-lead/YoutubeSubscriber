@@ -1,6 +1,33 @@
 const ytSubscribers = require("../models/subscribers");
 const mongoose = require("mongoose");
 
+const homeRoute = async (req, res) => {
+  try {
+    return res.status(200).json({
+      greeting:
+        "Hi, I am Anjum Shaikh, this is a backend API to Youtube Subscribers",
+      routes: [
+        {
+          route: "/",
+          response: "Response with an array subscribers(an Object)",
+        },
+        {
+          route: "/names",
+          response:
+            "Response with an array of subscribers(an Object with only two fields name and subscribedChannel)",
+        },
+        {
+          routes: "/:id",
+          response:
+            "Response with a subscriber*(an object)* with given id Response with status code 400 and Error message({message: error.message}) if id does not match",
+        },
+      ],
+    });
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
 //get all ytSubscriber
 const getSubscribers = async (req, res) => {
   try {
@@ -132,6 +159,7 @@ const updateSubscriber = async (req, res) => {
 };
 
 module.exports = {
+  homeRoute,
   getSubscribers,
   getSubscriber,
   createSubscriber,

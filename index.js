@@ -1,10 +1,11 @@
 require("dotenv").config();
-const PORT = process.env.PORT;
-const DATABASE_URL = process.env.DATABASE_URL || "";
+const PORT = 8080;
+const DATABASE_URL =
+  "mongodb+srv://anjumShaikh:coltSteele@almabackend.rztdvdr.mongodb.net/?retryWrites=true&w=majority";
 const express = require("express");
-const app = require("./app.js");
+const app = express();
 const mongoose = require("mongoose");
-const ytSubscriberRouter = require("./routes/ytSubscribers");
+const ytSubscriberRouter = require("./src/app");
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
@@ -14,6 +15,9 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
+//default route
+app.use("/", ytSubscriberRouter);
 
 // Connect to DATABASE
 mongoose.connect(DATABASE_URL, {
@@ -25,6 +29,4 @@ db.on("error", (err) => console.log(err));
 db.once("open", () => console.log("connected to database"));
 
 // Start Server
-app.listen(process.env.PORT, () =>
-  console.log(`App listening on port ${PORT}!`)
-);
+app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
