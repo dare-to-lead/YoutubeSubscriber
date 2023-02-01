@@ -5,9 +5,9 @@
     "passes": 7,
     "pending": 0,
     "failures": 0,
-    "start": "2023-01-30T15:36:06.360Z",
-    "end": "2023-01-30T15:36:06.478Z",
-    "duration": 118,
+    "start": "2023-01-31T05:46:59.940Z",
+    "end": "2023-01-31T05:47:00.032Z",
+    "duration": 92,
     "testsRegistered": 7,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a2760eb4-709e-4da9-9e2c-2460f43cabe8",
+      "uuid": "f6301fb9-f0cb-490c-bfde-325cf079990e",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "eec97198-7570-400e-876b-4e462bebc052",
+          "uuid": "700f9940-a64a-491a-803b-bb68063cfa1c",
           "title": "/Testing the home route",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\HomeRoute.test.js",
           "file": "\\__tests__\\HomeRoute.test.js",
@@ -38,7 +38,7 @@
               "title": "should get default API home route",
               "fullTitle": "/Testing the home route should get default API home route",
               "timedOut": false,
-              "duration": 15,
+              "duration": 9,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "chai\n  .request(server)\n  .get(\"/\")\n  .end((err, res) => {\n    res.should.have.status(200);\n    res.body.should.be.a(\"object\");\n    const greetingMsg = res.body.greeting;\n    expect(greetingMsg).to.be.eq(\n      \"Hi, I am Anjum Shaikh, this is a backend API to Youtube Subscribers\"\n    );\n  });\ndone();",
               "err": {},
-              "uuid": "75c8359e-2c6e-4423-bcf6-528a82332f40",
-              "parentUUID": "eec97198-7570-400e-876b-4e462bebc052",
+              "uuid": "5356269d-8a04-4c97-a8e6-87d86111918a",
+              "parentUUID": "700f9940-a64a-491a-803b-bb68063cfa1c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "75c8359e-2c6e-4423-bcf6-528a82332f40"
+            "5356269d-8a04-4c97-a8e6-87d86111918a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 15,
+          "duration": 9,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
         },
         {
-          "uuid": "176bc17c-1bfd-49fe-b56c-1f81cc45889d",
+          "uuid": "6b767931-4ea8-4f60-86d8-4695a6bd4902",
           "title": "GET all subscribers",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\ytSubscribeController.test.js",
           "file": "\\__tests__\\ytSubscribeController.test.js",
@@ -77,7 +77,7 @@
               "title": "should get all subscribers",
               "fullTitle": "GET all subscribers should get all subscribers",
               "timedOut": false,
-              "duration": 6,
+              "duration": 4,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -86,26 +86,26 @@
               "context": null,
               "code": "chai\n  .request(\"http://localhost:8080\")\n  .get(\"/subscribers\")\n  .end((err, res) => {\n    if (err) {\n      console.log(err);\n    } else {\n      res.should.have.status(200);\n      res.body.should.be.a(\"array\");\n      res.body.length.should.be.eq(3);\n    }\n  });\ndone();",
               "err": {},
-              "uuid": "1055c3ad-9bad-42d5-941e-27682eb16e23",
-              "parentUUID": "176bc17c-1bfd-49fe-b56c-1f81cc45889d",
+              "uuid": "145ade94-ec3c-46ce-ad15-3d92f0d020ff",
+              "parentUUID": "6b767931-4ea8-4f60-86d8-4695a6bd4902",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "1055c3ad-9bad-42d5-941e-27682eb16e23"
+            "145ade94-ec3c-46ce-ad15-3d92f0d020ff"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6,
+          "duration": 4,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
         },
         {
-          "uuid": "66266a10-26aa-4a3f-9bfd-a9b422be7658",
+          "uuid": "88f064a5-c9a7-4e89-978f-2712a100d347",
           "title": "GET single youtube subscriber",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\ytSubscribeController.test.js",
           "file": "\\__tests__\\ytSubscribeController.test.js",
@@ -116,7 +116,7 @@
               "title": "should get a single subscriber",
               "fullTitle": "GET single youtube subscriber should get a single subscriber",
               "timedOut": false,
-              "duration": 2,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -125,26 +125,26 @@
               "context": null,
               "code": "chai\n  .request(\"http://localhost:8080\")\n  .get(\"/subscribers/63d753657ea251179c5a6e52\")\n  .end((err, res) => {\n    if (err) {\n      console.log(err);\n    } else {\n      res.should.have.status(200);\n      res.body.should.be.a(\"object\");\n      res.body.length.should.be.eq(1);\n      res.body.should.have.property(\"subscribedChannel\");\n    }\n  });\ndone();",
               "err": {},
-              "uuid": "edbf93b6-bd0a-4093-8389-d10f97fab1e3",
-              "parentUUID": "66266a10-26aa-4a3f-9bfd-a9b422be7658",
+              "uuid": "6a1b84b8-7f97-4748-a90a-cdbb9d9b437f",
+              "parentUUID": "88f064a5-c9a7-4e89-978f-2712a100d347",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "edbf93b6-bd0a-4093-8389-d10f97fab1e3"
+            "6a1b84b8-7f97-4748-a90a-cdbb9d9b437f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2,
+          "duration": 1,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
         },
         {
-          "uuid": "a0e9eb4b-9e46-48fd-96a6-00a139f6979b",
+          "uuid": "bc833019-8820-458e-bed7-7c80a1e24168",
           "title": "POST a you tube subscriber",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\ytSubscribeController.test.js",
           "file": "\\__tests__\\ytSubscribeController.test.js",
@@ -155,7 +155,7 @@
               "title": "should post a subscriber",
               "fullTitle": "POST a you tube subscriber should post a subscriber",
               "timedOut": false,
-              "duration": 3,
+              "duration": 4,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -164,26 +164,26 @@
               "context": null,
               "code": "const subscriberData = {\n  name: \"Lucifer\",\n  subscribedChannel: \"sentex\",\n};\nchai\n  .request(\"http://localhost:8080\")\n  .post(\"/subscribers/\")\n  .send(subscriberData)\n  .end((err, res) => {\n    if (err) {\n      console.log(err);\n    } else {\n      res.should.have.status(200);\n      res.body.should.be.a(\"object\");\n      res.body.should.have.property(\"insertId\");\n      res.body.should.have.property(\"insertId\").to.not.eq(0);\n    }\n  });\ndone();",
               "err": {},
-              "uuid": "383a2230-9162-444e-9ab6-6b7759d996c9",
-              "parentUUID": "a0e9eb4b-9e46-48fd-96a6-00a139f6979b",
+              "uuid": "9087f850-a038-4ec0-84cc-6b1b242229c7",
+              "parentUUID": "bc833019-8820-458e-bed7-7c80a1e24168",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "383a2230-9162-444e-9ab6-6b7759d996c9"
+            "9087f850-a038-4ec0-84cc-6b1b242229c7"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3,
+          "duration": 4,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
         },
         {
-          "uuid": "e48c72b4-5acf-4d5e-bb43-bc4185d3c2e1",
+          "uuid": "c7ebd781-e617-43f6-b73e-b61422624845",
           "title": "DELETE a you tube subscriber",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\ytSubscribeController.test.js",
           "file": "\\__tests__\\ytSubscribeController.test.js",
@@ -203,15 +203,15 @@
               "context": null,
               "code": "chai\n  .request(\"http://localhost:8080\")\n  .delete(\"/api/subscribers/63d753657ea251179c5a6e52\")\n  .end((err, res) => {\n    if (err) {\n      console.log(err);\n    } else {\n      res.should.have.status(200);\n      res.body.should.be.a(\"object\");\n      const message = res.body.message;\n      expect(message).to.be.eq(\"deletion successful\");\n    }\n  });\ndone();",
               "err": {},
-              "uuid": "beb7ee8b-b21d-48ec-b385-dfac4b62f1d4",
-              "parentUUID": "e48c72b4-5acf-4d5e-bb43-bc4185d3c2e1",
+              "uuid": "288b51fa-6e4b-42d0-a481-2dc858dbcbef",
+              "parentUUID": "c7ebd781-e617-43f6-b73e-b61422624845",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "beb7ee8b-b21d-48ec-b385-dfac4b62f1d4"
+            "288b51fa-6e4b-42d0-a481-2dc858dbcbef"
           ],
           "failures": [],
           "pending": [],
@@ -222,7 +222,7 @@
           "_timeout": 60000
         },
         {
-          "uuid": "46682748-4b23-41fa-9925-7ab7fcaf240f",
+          "uuid": "29cea4d9-1198-47e3-a7d2-28d7a7396810",
           "title": "GET you tube subscriber's names",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\ytSubscribeController.test.js",
           "file": "\\__tests__\\ytSubscribeController.test.js",
@@ -233,7 +233,7 @@
               "title": "should get a PATH /api/ytSubscribers/names",
               "fullTitle": "GET you tube subscriber's names should get a PATH /api/ytSubscribers/names",
               "timedOut": false,
-              "duration": 2,
+              "duration": 3,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -242,26 +242,26 @@
               "context": null,
               "code": "chai\n  .request(\"http://localhost:8080\")\n  .get(\"/subscribers/names\")\n  .end((err, res) => {\n    if (err) {\n      console.log(err);\n    } else {\n      res.should.have.status(200);\n      res.body.should.be.a(\"array\");\n      res.body.length.to.be.eq(3);\n    }\n  });\ndone();",
               "err": {},
-              "uuid": "ec48333d-334f-4a53-ad7f-7df175c269be",
-              "parentUUID": "46682748-4b23-41fa-9925-7ab7fcaf240f",
+              "uuid": "2bcdcbd2-4e9e-4200-b6e1-393ec2c62d77",
+              "parentUUID": "29cea4d9-1198-47e3-a7d2-28d7a7396810",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ec48333d-334f-4a53-ad7f-7df175c269be"
+            "2bcdcbd2-4e9e-4200-b6e1-393ec2c62d77"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2,
+          "duration": 3,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
         },
         {
-          "uuid": "6845f165-1d7e-438b-807f-3e90743b443e",
+          "uuid": "41282fe3-a128-45b2-96ad-a4bac0e7cb05",
           "title": "UPDATE a you tube subscriber",
           "fullFile": "D:\\frontend projects\\Alma backend\\__tests__\\ytSubscribeController.test.js",
           "file": "\\__tests__\\ytSubscribeController.test.js",
@@ -272,7 +272,7 @@
               "title": "should UPDATE a subscriber",
               "fullTitle": "UPDATE a you tube subscriber should UPDATE a subscriber",
               "timedOut": false,
-              "duration": 1,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -281,20 +281,20 @@
               "context": null,
               "code": "const subscriberData = {\n  name: \"Lucifer\",\n  subscribedChannel: \"sentex\",\n};\nchai\n  .request(\"http://localhost:8080\")\n  .patch(\"/subscribers/63d753b67ea251179c5a6e56\")\n  .send(subscriberData)\n  .end((err, res) => {\n    if (err) {\n      console.log(err);\n    } else {\n      res.should.have.status(200);\n      res.body.should.be.a(\"object\");\n    }\n  });\ndone();",
               "err": {},
-              "uuid": "854b6777-b474-41d3-8f08-e9983356b63c",
-              "parentUUID": "6845f165-1d7e-438b-807f-3e90743b443e",
+              "uuid": "2ec68f1e-10ea-41fc-aa5d-b799ffdf95a9",
+              "parentUUID": "41282fe3-a128-45b2-96ad-a4bac0e7cb05",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "854b6777-b474-41d3-8f08-e9983356b63c"
+            "2ec68f1e-10ea-41fc-aa5d-b799ffdf95a9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 2,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
